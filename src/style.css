@@ -20,6 +20,13 @@ body {
     user-select: none; /* 禁用iOS文本选取 */
 }
 
+.member-border {
+    width: 100px;
+    border: 1px solid;
+    padding: 7px 0px;
+    border-radius: 4px;
+}
+
 .selected {
     background-color: #dfdfdf;
 }
@@ -36,13 +43,30 @@ body {
 
 .text-white {
     /* border-radius: 5px; */
-    min-height: 160px;
+    min-height: 185px;
     border-right: 1px solid #FFF;
 }
 
 .group {
     padding-bottom: 10px;
     border-bottom: 1px solid;
+}
+.drawing-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.random-member {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 @media (min-width: 600px) {

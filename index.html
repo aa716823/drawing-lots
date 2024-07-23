@@ -11,8 +11,9 @@
     <link rel="shortcut icon" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" href="src/style.css?v=24072201">
+    <link rel="stylesheet" href="src/style.css?v=24072301">
     <link href="src/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/csshake.min.css">
     <script src="src/vue.js"></script>
     <script src="src/popper.min.js"></script>
     <script src="src/bootstrap.min.js"></script>
@@ -24,18 +25,36 @@
             <div class="col-6 pe-0">
                 <h2 class="text-center text-white rounded-start bg-primary p-2">
                     <p class="group">藍隊</p>
-                    <div v-for="(member, index) in blueTeam" :key="member" class="text-center h3" :class="index == 0 ? 'mb-4' : ''">{{ member }}</div>
+                    <div 
+                        v-for="(member, index) in blueTeam" 
+                        :key="member" 
+                        class="d-flex justify-content-center text-center h3 " 
+                        :class="[index == 0 ? 'mb-3' : '', isDrawing ? 'shake-hard shake-constant' : '']"
+                    >
+                        <div class="member-border">
+                            {{ member }}
+                        </div>
+                    </div>
                 </h2>
             </div>
             <div class="col-6 ps-0">
                 <h2 class="text-center text-white rounded-end bg-danger p-2">
                     <p class="group">紅隊</p>
-                    <div v-for="(member, index) in redTeam" :key="member" class="text-center h3" :class="index == 0 ? 'mb-4' : ''">{{ member }}</div>
+                    <div 
+                        v-for="(member, index) in redTeam" 
+                        :key="member" 
+                        class="d-flex justify-content-center text-center h3" 
+                        :class="[index == 0 ? 'mb-3' : '', isDrawing ? 'shake-hard shake-constant' : '']"
+                    >
+                        <div class="member-border">
+                            {{ member }}
+                        </div>
+                    </div>
                 </h2>
             </div>
         </div>
         <div class="d-flex justify-content-end mt-3">
-            <button class="btn btn-success btn-lg me-2" @click="drawTeams" :disabled="selectedMembers.length !== 4">抽籤分組</button>
+            <button class="btn btn-success btn-lg me-2" @click="drawTeams" :disabled="selectedMembers.length < 4">抽籤分組</button>
             <button class="btn btn-secondary btn-lg" @click="resetTeams">重置</button>
         </div>
         <hr>
@@ -63,8 +82,9 @@
 
         <hr>
         <button class="btn btn-warning btn-lg mb-2 w-100" @click="clearMembers">移除所有成員</button>
+        <button class="btn btn-dark btn-lg mb-2 w-100" @click="defaultMembers">使用預設成員</button>
     </div>
-    <script src="src/app.js?v=24072201"></script>
+    <script src="src/app.js?v=24072301"></script>
     <script>
         // 啟用 Bootstrap 的 Tooltip
         document.addEventListener('DOMContentLoaded', function () {
