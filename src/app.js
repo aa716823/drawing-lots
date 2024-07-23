@@ -50,7 +50,7 @@ createApp({
                 blueTeam.value = shuffled.slice(2, 4);
                 // selectedMembers.value = [];
                 isDrawing.value = false;
-            }, 2000);
+            }, 1800);
         };
 
         const startRemoveMember = (index) => {
