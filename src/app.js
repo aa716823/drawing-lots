@@ -81,8 +81,9 @@ createApp({
             resetTeams();
         };
         const defaultMembers = () => {
-            members.value = ['Ann', 'Alvin', 'Boking', 'Colton', 'Eddie', '珊', '蔣爸'];
             localStorage.removeItem('members');
+            members.value = ['Ann', 'Alvin', 'Boking', 'Colton', 'Eddie', '珊', '蔣爸'];
+            localStorage.setItem('members', JSON.stringify(members.value));
             selectedMembers.value = [];
             resetTeams();
         }
