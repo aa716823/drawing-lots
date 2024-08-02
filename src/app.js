@@ -29,26 +29,24 @@ createApp({
 
         const drawTeams = () => {
             isDrawing.value = true;
+            const selectedNames = selectedMembers.value.map(index => members.value[index]);
             drawInterval = setInterval(() => {
                 redTeam.value = [
-                    members.value[Math.floor(Math.random() * members.value.length)],
-                    members.value[Math.floor(Math.random() * members.value.length)]
+                    selectedNames[Math.floor(Math.random() * selectedNames.length)],
+                    selectedNames[Math.floor(Math.random() * selectedNames.length)]
                 ];
                 
                 blueTeam.value = [
-                    members.value[Math.floor(Math.random() * members.value.length)],
-                    members.value[Math.floor(Math.random() * members.value.length)]
+                    selectedNames[Math.floor(Math.random() * selectedNames.length)],
+                    selectedNames[Math.floor(Math.random() * selectedNames.length)]
                 ]
-                // randomMember.value = members.value[Math.floor(Math.random() * members.value.length)];
             }, 50);
 
             setTimeout(() => {
                 clearInterval(drawInterval);
-                const selectedNames = selectedMembers.value.map(index => members.value[index]);
                 const shuffled = selectedNames.sort(() => 0.5 - Math.random());
                 redTeam.value = shuffled.slice(0, 2);
                 blueTeam.value = shuffled.slice(2, 4);
-                // selectedMembers.value = [];
                 isDrawing.value = false;
             }, 1800);
         };

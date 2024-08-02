@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="favicon.png?v=20240729">
     <link rel="apple-touch-icon" href="favicon.png?v=20240729">
     <link rel="icon" href="favicon.png?v=20240729" type="image/png">
-    <link rel="stylesheet" href="src/style.css?v=24072302">
+    <link rel="stylesheet" href="src/style.css?v=24080212">
     <link href="src/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="src/csshake.min.css">
     <script src="src/vue.js"></script>
@@ -19,7 +19,7 @@
     <script src="src/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="dark-mode">
     <div id="app" class="container">
         <div class="row team mt-2">
             <div class="col-6 pe-0">
@@ -38,7 +38,7 @@
                 </h2>
             </div>
             <div class="col-6 ps-0">
-                <h2 class="text-center text-white rounded-end bg-danger p-2">
+                <h2 class="text-center text-white rounded-end bg-danger p-2 border-end-0">
                     <p class="group">紅隊</p>
                     <div 
                         v-for="(member, index) in redTeam" 
@@ -62,7 +62,7 @@
             <h2 class="d-flex">
                 <span class="float-start">成員列表</span>
                 <div class="float-start ms-2" data-bs-toggle="tooltip" data-bs-placement="right" title="長按成員進行移除該成員">
-                    <img src="src/info.svg" width="25">
+                    <img src="src/info.svg" class="info-color" width="25">
                 </div>
             </h2>
             <div class="members-container">
@@ -84,7 +84,7 @@
         <button class="btn btn-warning btn-lg mb-2 w-100" @click="clearMembers">移除所有成員</button>
         <button class="btn btn-dark btn-lg mb-2 w-100" @click="defaultMembers">使用預設成員</button>
     </div>
-    <script src="src/app.js?v=24072302"></script>
+    <script src="src/app.js?v=24080212"></script>
     <script>
         // 啟用 Bootstrap 的 Tooltip
         document.addEventListener('DOMContentLoaded', function () {
@@ -93,6 +93,23 @@
                 return new bootstrap.Tooltip(tooltipTriggerEl)
             })
         });
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('clicked');
+                setTimeout(() => {
+                this.classList.remove('clicked');
+                }, 150);
+            });
+        });
+        document.querySelectorAll('.member').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('clicked-85');
+                setTimeout(() => {
+                this.classList.remove('clicked-85');
+                }, 150);
+            });
+        });
+
     </script>
 </body>
 

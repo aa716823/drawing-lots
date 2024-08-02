@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .member {
@@ -21,14 +22,17 @@ body {
 }
 
 .member-border {
-    width: 100px;
-    border: 1px solid;
+    /* width: 100%; */
     padding: 7px 0px;
     border-radius: 4px;
+    font-size: 3.1rem;
+    font-weight: bold;
 }
 
 .selected {
+    color: black;
     background-color: #dfdfdf;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .rad-area {
@@ -43,7 +47,7 @@ body {
 
 .text-white {
     /* border-radius: 5px; */
-    min-height: 185px;
+    min-height: 247px;
     border-right: 1px solid #FFF;
 }
 
@@ -84,3 +88,34 @@ body {
         width: calc(33.3333333% - 10px)
     }
 }
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  .dark-mode .navbar {
+    background-color: #333;
+  }
+  .dark-mode .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .btn-secondary:focus , .btn-primary:focus, .form-control:focus{
+    color: none !important;
+    background-color: none !important;
+    border-color: none !important;
+    box-shadow: none !important;
+  }
+
+  .clicked {
+    transform: scale(0.95);
+    transition: transform 0.8s;
+  }
+  .clicked-85 {
+    transform: scale(0.85);
+    transition: transform 0.8s;
+  }
+  .info-color {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(293deg) brightness(103%) contrast(115%);
+  }
